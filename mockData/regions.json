@@ -12,6 +12,8 @@
     "water_quality_index": 68,
     "population": 3556729,
     "area_km2": 15090,
+    "overall_level": "MEDIUM",
+    "overall_score": 6.8,
     "notes": "Smallest region by area, highest population density. Mediterranean coast with mild climate, industrial and port activities increase respiratory issues."
   },
   {
@@ -27,22 +29,26 @@
     "water_quality_index": 72,
     "population": 2314346,
     "area_km2": 90127,
-    "notes": "Large northeastern region bordering Algeria. Semi-arid climate with moderate temperatures."
+    "overall_level": "LOW",
+    "overall_score": 4.2,
+    "notes": "Large northeastern region bordering Algeria. Semi-arid climate with moderate temperatures. Good water quality and lower population density help mitigate risks."
   },
   {
     "region_name": "Fes-Meknes",
     "symptoms": {
-      "waterborne": 420,
-      "vector_borne": 125,
-      "respiratory": 695,
-      "other": 85
+      "waterborne": 520,
+      "vector_borne": 145,
+      "respiratory": 780,
+      "other": 115
     },
     "temperature": 27,
     "humidity": 56,
-    "water_quality_index": 54,
+    "water_quality_index": 48,
     "population": 4236892,
     "area_km2": 40075,
-    "notes": "Historic cities with high population density. Air quality issues from urban congestion and industrial activity."
+    "overall_level": "HIGH",
+    "overall_score": 8.4,
+    "notes": "Historic cities with high population density. Poor water quality (48), severe air quality issues from urban congestion and industrial activity. High waterborne and respiratory symptoms."
   },
   {
     "region_name": "Rabat-Sale-Kenitra",
@@ -57,67 +63,77 @@
     "water_quality_index": 70,
     "population": 4580866,
     "area_km2": 18194,
-    "notes": "Capital region with second smallest area but highest population. Coastal location with good infrastructure but urban air quality concerns."
+    "overall_level": "MEDIUM",
+    "overall_score": 5.9,
+    "notes": "Capital region with second smallest area but highest population. Coastal location with good infrastructure and decent water quality (70) but urban air quality concerns."
   },
   {
     "region_name": "Beni Mellal-Khenifra",
     "symptoms": {
-      "waterborne": 385,
-      "vector_borne": 240,
-      "respiratory": 420,
-      "other": 95
+      "waterborne": 450,
+      "vector_borne": 310,
+      "respiratory": 520,
+      "other": 125
     },
     "temperature": 32,
     "humidity": 48,
-    "water_quality_index": 58,
+    "water_quality_index": 52,
     "population": 2520776,
     "area_km2": 28374,
-    "notes": "Central agricultural region with moderate size. Mix of mountains and plains, agricultural activities."
+    "overall_level": "HIGH",
+    "overall_score": 7.8,
+    "notes": "Central agricultural region with moderate size. High temperatures (32°C) and poor water quality (52) create significant health risks. Mix of mountains and plains, agricultural activities contribute to vector-borne diseases."
   },
   {
     "region_name": "Casablanca-Settat",
     "symptoms": {
-      "waterborne": 410,
-      "vector_borne": 135,
-      "respiratory": 920,
-      "other": 78
+      "waterborne": 560,
+      "vector_borne": 165,
+      "respiratory": 1020,
+      "other": 95
     },
     "temperature": 25,
     "humidity": 71,
-    "water_quality_index": 62,
+    "water_quality_index": 55,
     "population": 6861739,
     "area_km2": 20166,
-    "notes": "Most populous region, small area = highest density. Major industrial and economic hub. Significant air pollution from traffic and industry."
+    "overall_level": "HIGH",
+    "overall_score": 8.9,
+    "notes": "Most populous region, small area = highest density. Major industrial and economic hub. Severe air pollution from traffic and industry (1020 respiratory cases). Poor water quality and very high population stress infrastructure."
   },
   {
     "region_name": "Marrakech-Safi",
     "symptoms": {
-      "waterborne": 485,
-      "vector_borne": 320,
-      "respiratory": 520,
-      "other": 102
+      "waterborne": 640,
+      "vector_borne": 420,
+      "respiratory": 580,
+      "other": 135
     },
     "temperature": 35,
     "humidity": 38,
-    "water_quality_index": 48,
+    "water_quality_index": 42,
     "population": 4892393,
     "area_km2": 39055,
-    "notes": "Hot interior region with tourist centers. High temperatures, water quality issues, vector-borne diseases from climate."
+    "overall_level": "HIGH",
+    "overall_score": 9.1,
+    "notes": "Hot interior region with tourist centers. Extreme temperatures (35°C), very poor water quality (42), and high vector-borne diseases (420 cases) due to climate. Highest overall risk score."
   },
   {
     "region_name": "Draa-Tafilalet",
     "symptoms": {
-      "waterborne": 265,
-      "vector_borne": 295,
-      "respiratory": 215,
-      "other": 58
+      "waterborne": 320,
+      "vector_borne": 365,
+      "respiratory": 240,
+      "other": 72
     },
     "temperature": 37,
     "humidity": 22,
-    "water_quality_index": 52,
+    "water_quality_index": 50,
     "population": 1635008,
     "area_km2": 88836,
-    "notes": "Large southeastern desert region with low population. Extreme heat, low humidity, water scarcity challenges."
+    "overall_level": "MEDIUM",
+    "overall_score": 6.5,
+    "notes": "Large southeastern desert region with low population. Extreme heat (37°C), low humidity, water scarcity challenges. High vector-borne diseases but lower population density reduces overall impact."
   },
   {
     "region_name": "Souss-Massa",
@@ -132,7 +148,9 @@
     "water_quality_index": 65,
     "population": 2676847,
     "area_km2": 51642,
-    "notes": "Coastal and interior region with Agadir. Moderate climate, tourism and agriculture, better water quality."
+    "overall_level": "MEDIUM",
+    "overall_score": 5.4,
+    "notes": "Coastal and interior region with Agadir. Moderate climate, tourism and agriculture. Better water quality (65) and moderate symptoms keep risk at medium level."
   },
   {
     "region_name": "Guelmim-Oued Noun",
@@ -147,7 +165,9 @@
     "water_quality_index": 60,
     "population": 433757,
     "area_km2": 46108,
-    "notes": "Southern region with low population density. Desert climate, sparse population leads to lower absolute case numbers."
+    "overall_level": "LOW",
+    "overall_score": 3.6,
+    "notes": "Southern region with low population density. Desert climate, sparse population leads to lower absolute case numbers. Moderate water quality and low health incidents."
   },
   {
     "region_name": "Laayoune-Sakia El Hamra",
@@ -162,7 +182,9 @@
     "water_quality_index": 58,
     "population": 367758,
     "area_km2": 140018,
-    "notes": "Second largest region by area, very low population density. Partially in disputed Western Sahara territory."
+    "overall_level": "LOW",
+    "overall_score": 2.8,
+    "notes": "Second largest region by area, very low population density. Partially in disputed Western Sahara territory. Low health incidents across all categories make this a low-risk region."
   },
   {
     "region_name": "Dakhla-Oued Ed-Dahab",
@@ -177,6 +199,8 @@
     "water_quality_index": 66,
     "population": 142955,
     "area_km2": 142865,
-    "notes": "Largest region by area, lowest population. Entirely within disputed Western Sahara. Coastal location with moderate climate."
+    "overall_level": "LOW",
+    "overall_score": 2.1,
+    "notes": "Largest region by area, lowest population. Entirely within disputed Western Sahara. Coastal location with moderate climate. Best water quality (66) and lowest health incidents = lowest risk."
   }
 ]

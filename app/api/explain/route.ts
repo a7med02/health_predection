@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server"
-import { loadRegions } from "@/lib/parser"
-import { computeAllRegions } from "@/lib/riskEngine"
+import { loadProcessedRegions } from "@/lib/parser"
 import { generateRegionExplanation } from "@/lib/geminiService"
 
 export async function GET(request: Request) {
@@ -15,8 +14,7 @@ export async function GET(request: Request) {
       )
     }
 
-    const rawRegions = loadRegions()
-    const processed = computeAllRegions(rawRegions)
+    const processed = loadProcessedRegions()
     const region = processed.find(
       (r) => r.region_name.toLowerCase() === regionName.toLowerCase()
     )

@@ -1,11 +1,9 @@
 import { NextResponse } from "next/server"
-import { loadRegions } from "@/lib/parser"
-import { computeAllRegions } from "@/lib/riskEngine"
+import { loadProcessedRegions } from "@/lib/parser"
 
 export async function GET() {
   try {
-    const rawRegions = loadRegions()
-    const processed = computeAllRegions(rawRegions)
+    const processed = loadProcessedRegions()
     return NextResponse.json(processed)
   } catch (error) {
     console.error("Error processing regions:", error)

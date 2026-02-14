@@ -1,16 +1,15 @@
 import type { ProcessedRegion } from "./types"
 
-const GEMINI_API_KEY = process.env.GEMINI_API_KEY
-
-const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}`
-
 async function callGemini(prompt: string): Promise<string> {
-  if (!GEMINI_API_KEY) {
+  const apiKey = process.env.GEMINI_API_KEY
+  if (!apiKey) {
     return "AI explanation unavailable. Please configure the GEMINI_API_KEY environment variable."
   }
 
+  // Use flash-lite to stay within free-tier quota (separate from gemini-2.0-flash)
+  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash-lite:generateContent?key=${apiKey}`
   try {
-    const res = await fetch(GEMINI_URL, {
+    const res = await fetch(url, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -22,17 +21,21 @@ async function callGemini(prompt: string): Promise<string> {
       }),
     })
 
+    const responseText = await res.text()
     if (!res.ok) {
-      const errorText = await res.text()
-      console.error("Gemini API error:", errorText)
-      return "AI explanation temporarily unavailable."
+      console.error("Gemini API error:", res.status, responseText)
+      if (res.status === 429) {
+        return "API rate limit or quota exceeded. Please try again in a minute, or check your Gemini API quota at https://ai.google.dev/gemini-api/docs/rate-limits"
+      }
+      return "AI explanation temporarily unavailable. Please try again in a moment."
     }
 
-    const data = await res.json()
-    return data.candidates?.[0]?.content?.parts?.[0]?.text ?? "No response generated."
+    const data = JSON.parse(responseText) as { candidates?: Array<{ content?: { parts?: Array<{ text?: string }> } }> }
+    const text = data.candidates?.[0]?.content?.parts?.[0]?.text
+    return text?.trim() ?? "No response generated."
   } catch (error) {
     console.error("Gemini service error:", error)
-    return "AI explanation temporarily unavailable."
+    return "AI explanation temporarily unavailable. Please try again in a moment."
   }
 }
 

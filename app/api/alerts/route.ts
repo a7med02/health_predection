@@ -1,13 +1,11 @@
 import { NextResponse } from "next/server"
-import { loadRegions } from "@/lib/parser"
-import { computeAllRegions } from "@/lib/riskEngine"
+import { loadProcessedRegions } from "@/lib/parser"
 import { generateAlertMessage } from "@/lib/geminiService"
 import type { AlertData } from "@/lib/types"
 
 export async function GET() {
   try {
-    const rawRegions = loadRegions()
-    const processed = computeAllRegions(rawRegions)
+    const processed = loadProcessedRegions()
     const highRiskRegions = processed.filter((r) => r.overall_level === "HIGH")
 
     const alerts: AlertData[] = await Promise.all(
